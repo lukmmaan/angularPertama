@@ -1,0 +1,13 @@
+<div class="navbar">
+  <h1 style="margin-top: 10px;">HRis</h1>
+  <nav>
+    <a href="employees" routerLinkActive="active">Employees</a>
+    <ng-container *ngIf="!fullName">
+      <a href="login" routerLinkActive="active">Login</a>
+    </ng-container>
+    <ng-container *ngIf="fullName" class="user-profile with-border border">
+      <span class="user-name">{{ fullName }}</span>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </ng-container>
+  </nav>
+</div>

@@ -1,0 +1,78 @@
+<div class="container mt-5 text-center">
+  <h2>Employee List</h2>
+
+  <hr />
+  <div class="row mb-3">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="usernameSearchTerm"
+        (input)="onSearchChange()"
+        placeholder="Cari berdasarkan username"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="emailSearchTerm"
+        (input)="onSearchChange()"
+        placeholder="Cari berdasarkan email"
+      />
+    </div>
+    <div class="col">
+      <button (click)="onAddEmployee()" class="btn">Add Employee</button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th (click)="onSort('username')">Username</th>
+        <th (click)="onSort('fullName')">Full Name</th>
+        <th (click)="onSort('email')">Email</th>
+        <th (click)="onSort('birthDate')">Birth Date</th>
+        <th (click)="onSort('basicSalary')">Basic Salary</th>
+        <th (click)="onSort('status')">Status</th>
+        <th (click)="onSort('group')">Group</th>
+        <th (click)="onSort('description')">Description</th>
+        <th (click)="onSort('description')">Edit</th>
+        <th (click)="onSort('description')">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td (click)="onEmployeeClick(employee._id)" class="clickable">
+          {{ employee.username }}
+        </td>
+
+        <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.birthDate | date }}</td>
+        <td>
+          {{ employee.basicSalary | currency : "IDR" : "symbol" : "1.2-2" }}
+        </td>
+        <td>{{ employee.status }}</td>
+        <td>{{ employee.group }}</td>
+        <td>{{ employee.description }}</td>
+        <td>
+          <button (click)="onEdit(employee.email)" class="btn btn-warning">
+            Edit
+          </button>
+        </td>
+        <td>
+          <button (click)="onDelete(employee.email)" class="btn btn-danger">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+    [length]="totalEmployeesTemp"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageIndex]="pageIndex"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
+</div>

@@ -1,0 +1,118 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Add Employee</h2>
+  <hr />
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        [(ngModel)]="employee.username"
+        name="username"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="fullName" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="fullName"
+        [(ngModel)]="employee.firstName"
+        name="fullName"
+        required
+      />
+    </div>
+    
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="fullName"
+        [(ngModel)]="employee.lastName"
+        name="fullName"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="employee.email"
+        name="email"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="birthDate" class="form-label">Birth Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="birthDate"
+        [(ngModel)]="employee.birthDate"
+        name="birthDate"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="basicSalary" class="form-label">Basic Salary</label>
+      <input
+        type="number"
+        class="form-control"
+        id="basicSalary"
+        [(ngModel)]="employee.basicSalary"
+        name="basicSalary"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select
+        class="form-select"
+        id="status"
+        [(ngModel)]="employee.status"
+        name="status"
+        required
+      >
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="group" class="form-label">Group</label>
+      <input
+        type="text"
+        class="form-control"
+        id="group"
+        [(ngModel)]="employee.group"
+        name="group"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        [(ngModel)]="employee.description"
+        name="description"
+        required
+      ></textarea>
+    </div>
+    <div class="mb-4 text-center" style="padding-bottom: 100px;">
+      <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+  </form>
+</div>

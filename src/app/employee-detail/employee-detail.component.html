@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2>Employee Detail</h2>
+  <hr />
+
+  <div *ngIf="employee" class="card">
+    <div class="card-body">
+      <div class="mb-3"><strong>Username:</strong> {{ employee.username }}</div>
+      <div class="mb-3">
+        <strong>Full Name:</strong> {{ employee.firstName }}
+        {{ employee.lastName }}
+      </div>
+      <div class="mb-3"><strong>Email:</strong> {{ employee.email }}</div>
+      <div class="mb-3">
+        <strong>Birth Date:</strong> {{ employee.birthDate | date }}
+      </div>
+      <div class="mb-3">
+        <strong>Basic Salary:</strong>
+        {{ employee.basicSalary | currency : "IDR" : "symbol" : "1.2-2" }}
+      </div>
+      <div class="mb-3"><strong>Status:</strong> {{ employee.status }}</div>
+      <div class="mb-3"><strong>Group:</strong> {{ employee.group }}</div>
+      <div class="mb-3">
+        <strong>Description:</strong> {{ employee.description }}
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 text-center">
+    <button (click)="onBackToList()" class="btn btn-secondary">OK</button>
+  </div>
+</div>

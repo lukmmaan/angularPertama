@@ -1,0 +1,22 @@
+.card {
+  margin-top: 50px;
+}
+
+.card-header {
+  background-color: dimgray;
+  color: white;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: dimgray;
+  border-color: dimgray;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 50px;
+}
