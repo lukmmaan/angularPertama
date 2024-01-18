@@ -35,7 +35,7 @@ export class AddEmployeeComponent {
         this.loading = true;
         await this.http.post(`${API_URL}/addEmployee`, this.employee).toPromise();
         this.showSuccessAlert();
-        this.router.navigate(['/employee-list']);
+        this.router.navigate(['/employees']);
       } catch (error) {
         // console.log('Error', error);
         this.showErrorAlert();
