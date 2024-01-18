@@ -45,6 +45,7 @@ export class EmployeeListComponent implements OnInit {
       this.allEmployees = response;
       this.totalEmployees = response.length;
       this.employees = this.getPagedEmployees();
+      // console.log(this.employees, 'employees')
       // console.log(this.employees[0]._id, 'employees')
     } catch (error) {
       console.log(error);
