@@ -1,9 +1,8 @@
-<div class="container mt-5 text-center">
-  <h2>Employee List</h2>
-
+<div class="container mt-5">
+  <h2 class="text-center">Employee List</h2>
   <hr />
   <div class="row mb-3">
-    <div class="col">
+    <div class="col-md-4 mb-2">
       <input
         type="text"
         class="form-control"
@@ -12,7 +11,7 @@
         placeholder="Cari berdasarkan username"
       />
     </div>
-    <div class="col">
+    <div class="col-md-4 mb-2">
       <input
         type="text"
         class="form-control"
@@ -21,53 +20,56 @@
         placeholder="Cari berdasarkan email"
       />
     </div>
-    <div class="col">
-      <button (click)="onAddEmployee()" class="btn">Add Employee</button>
+    <div class="col-md-4 mb-2">
+      <button (click)="onAddEmployee()" class="btn btn-primary btn-block">
+        Add Employee
+      </button>
     </div>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th (click)="onSort('username')">Username</th>
-        <th (click)="onSort('fullName')">Full Name</th>
-        <th (click)="onSort('email')">Email</th>
-        <th (click)="onSort('birthDate')">Birth Date</th>
-        <th (click)="onSort('basicSalary')">Basic Salary</th>
-        <th (click)="onSort('status')">Status</th>
-        <th (click)="onSort('group')">Group</th>
-        <th (click)="onSort('description')">Description</th>
-        <th (click)="onSort('description')">Edit</th>
-        <th (click)="onSort('description')">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employee of employees">
-        <td (click)="onEmployeeClick(employee._id)" class="clickable">
-          {{ employee.username }}
-        </td>
-
-        <td>{{ employee.firstName }} {{ employee.lastName }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.birthDate | date }}</td>
-        <td>
-          {{ employee.basicSalary | currency : "IDR" : "symbol" : "1.2-2" }}
-        </td>
-        <td>{{ employee.status }}</td>
-        <td>{{ employee.group }}</td>
-        <td>{{ employee.description }}</td>
-        <td>
-          <button (click)="onEdit(employee.email)" class="btn btn-warning">
-            Edit
-          </button>
-        </td>
-        <td>
-          <button (click)="onDelete(employee.email)" class="btn btn-danger">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th (click)="onSort('username')">Username</th>
+          <th (click)="onSort('fullName')">Full Name</th>
+          <th (click)="onSort('email')">Email</th>
+          <th (click)="onSort('birthDate')">Birth Date</th>
+          <th (click)="onSort('basicSalary')">Basic Salary</th>
+          <th (click)="onSort('status')">Status</th>
+          <th (click)="onSort('group')">Group</th>
+          <th (click)="onSort('description')">Description</th>
+          <th (click)="onSort('description')">Edit</th>
+          <th (click)="onSort('description')">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td (click)="onEmployeeClick(employee._id)" class="clickable">
+            {{ employee.username }}
+          </td>
+          <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.birthDate | date }}</td>
+          <td>
+            {{ employee.basicSalary | currency : "IDR" : "symbol" : "1.2-2" }}
+          </td>
+          <td>{{ employee.status }}</td>
+          <td>{{ employee.group }}</td>
+          <td>{{ employee.description }}</td>
+          <td>
+            <button (click)="onEdit(employee.email)" class="btn btn-warning">
+              Edit
+            </button>
+          </td>
+          <td>
+            <button (click)="onDelete(employee.email)" class="btn btn-danger">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <mat-paginator
     [length]="totalEmployeesTemp"
     [pageSize]="pageSize"
