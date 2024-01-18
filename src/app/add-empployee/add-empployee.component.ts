@@ -24,12 +24,15 @@ export class AddEmployeeComponent {
     description: ''
   };
 
+  loading = false;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   async onSubmit() {
     if (this.validateForm()) {
 
       try {
+        this.loading = true;
         await this.http.post(`${API_URL}/addEmployee`, this.employee).toPromise();
         this.showSuccessAlert();
         this.router.navigate(['/employee-list']);
@@ -38,6 +41,7 @@ export class AddEmployeeComponent {
         this.showErrorAlert();
       } finally {
         this.resetForm();
+        this.loading = false;
       }
     } else {
       this.showValidationErrorAlert();
